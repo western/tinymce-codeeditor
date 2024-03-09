@@ -22,7 +22,7 @@ tinymce.init({
 ```
 ### Plugin configuration
 The following configuration options are provided:
-  1. __codeeditor_themes_pack__ -> EITHER a __string__ with a set of words matching _ACE_ theme names with a space inbetween them OR an __array__ of strings, each matching any _ACE_ theme name. Default is _"xcode twilight merbivore dawn kuroir"_.
+  1. __codeeditor_themes_pack__ -> EITHER a __string__ with a set of words matching _ACE_ theme names with a space inbetween them OR an __array__ of strings, each matching any _ACE_ theme name. Default is _"chrome dreamweaver eclipse github github_dark xcode twilight"_.
 
 Check out _ACE_ available themes [here](https://github.com/ajaxorg/ace/tree/master/src/theme). Preview [here](https://ace.c9.io/build/kitchen-sink.html).
 
@@ -35,7 +35,7 @@ Check out _ACE_ available themes [here](https://github.com/ajaxorg/ace/tree/mast
           selector: "#target-element", // change this value according to your HTML target element selector
           toolbar: ["codeeditor"],
           plugins: ["codeeditor"],
-          codeeditor_themes_pack: "xcode twilight merbivore dawn kuroir", // or ["xcode", "twilight", "merbivore", "dawn", "kuroir"]
+          codeeditor_themes_pack: "chrome dreamweaver eclipse github github_dark xcode twilight", // or ['chrome', 'dreamweaver', 'eclipse', 'github', 'github_dark', 'xcode', 'twilight']
           codeeditor_wrap_mode: true,
           codeeditor_font_size: 16
       });
