@@ -5,10 +5,10 @@ Source Code Editor plugin for [Tinymce WYSIWYG Editor](https://www.tiny.cloud/) 
 ![preview](/preview.png)
 
 To use this plugin copy the folder "codeeditor" and paste it into tinymce "plugins" folder in its source directory.
-Here's the path for tinymce_6.4.2 self-hosted production release -> tinymce_6.4.2/tinymce/js/tinymce/plugins
+Here's the path for tinymce_6.8.3 self-hosted production release -> tinymce_6.8.3/tinymce/js/tinymce/plugins
 
-Download any of tinymce self-hosted releases [here](https://download.tiny.cloud/tinymce/community/tinymce_6.4.2.zip) or
-[dev](https://download.tiny.cloud/tinymce/community/tinymce_6.4.2_dev.zip)
+Download any of tinymce self-hosted releases [here](https://download.tiny.cloud/tinymce/community/tinymce_6.8.3.zip) or
+[dev](https://download.tiny.cloud/tinymce/community/tinymce_6.8.3_dev.zip)
 
 ## Tutorial
 ### Initializing

@@ -1,7 +1,7 @@
 /**
  * @copyright
  * @author
- * @version 1.0.0 (2024-03-09)
+ * @version 1.1.0 (2024-03-09)
  * @description Tinymce custom plugin for source code editing.
  */
 
