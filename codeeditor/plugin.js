@@ -2,7 +2,7 @@
  * @copyright
  * @author
  * @version 1.1.0 (2024-03-09)
- * @description Tinymce custom plugin for source code editing.
+ * @description Tinymce Source Code Editor plugin for highlight code editing
  */
 
 var aceEditor, tryToBuildAceTimer;
@@ -35,6 +35,9 @@ function applyTheme(ref) {
     aceEditor.setTheme(ref.options[ref.selectedIndex].value);
 }
 
+function applyFontSize(ref) {
+    aceEditor.setFontSize(parseInt(ref.options[ref.selectedIndex].value));
+}
 
 
 ! function() {
@@ -48,7 +51,7 @@ function applyTheme(ref) {
         if (Array.isArray(customPack)) {
             return customPack
         }
-        return ['xcode', 'twilight', 'merbivore', 'dawn', 'kuroir']
+        return ['chrome', 'dreamweaver', 'eclipse', 'github', 'github_dark', 'xcode', 'twilight']
     }();
 
 
@@ -102,9 +105,9 @@ function applyTheme(ref) {
 #tox-codeeditor-modal {
     position: relative;
     display: block;
-    height: 650px;
+    height: 750px;
     width: 95vw;
-    max-width: 1200px;
+    max-width: 1600px;
     background-color: gainsboro;
     border: 1px solid rgba(204,204,204,.4);
     border-radius: 3px;
@@ -140,7 +143,7 @@ function applyTheme(ref) {
     position: relative;
     width: calc(100% + 2px);
     margin-left: -1px;
-    height: 555px;
+    height: 655px;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
     padding: 3px 0;
@@ -295,6 +298,9 @@ function applyTheme(ref) {
             ${getOptions()}
         </select>
 
+        <select _id="tox-codeeditor-theme-picker" onchange="applyFontSize(this)">
+            ${getOptions2()}
+        </select>
 
         <div role="presentation" id="tox-codeeditor-footer-buttons">
             
@@ -332,6 +338,7 @@ function applyTheme(ref) {
             aceEditor = ace.edit("tox-codeeditor-editor");
             aceEditor.setTheme("ace/theme/xcode");
             aceEditor.setFontSize(fontSize);
+            aceEditor.setHighlightActiveLine(true);
             clearInterval(tryToBuildAceTimer);
         } catch (e) {}
     }, 500);
