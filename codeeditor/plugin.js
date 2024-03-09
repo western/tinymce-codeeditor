@@ -336,7 +336,7 @@ function applyFontSize(ref) {
     tryToBuildAceTimer = setInterval(() => {
         try {
             aceEditor = ace.edit("tox-codeeditor-editor");
-            aceEditor.setTheme("ace/theme/xcode");
+            aceEditor.setTheme("ace/theme/chrome");
             aceEditor.setFontSize(fontSize);
             aceEditor.setHighlightActiveLine(true);
             clearInterval(tryToBuildAceTimer);
