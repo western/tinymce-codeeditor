@@ -35,6 +35,15 @@ function applyTheme(ref) {
     aceEditor.setTheme(ref.options[ref.selectedIndex].value);
 }
 
+let fontSize = 16;
+
+function applyFontSize(ref) {
+    console.log('fontSize=', ref.options[ref.selectedIndex].value);
+    //aceEditor.setFontSize(ref.options[ref.selectedIndex].value);
+    fontSize = parseInt(ref.options[ref.selectedIndex].value);
+    aceEditor.setFontSize(fontSize);
+}
+
 ! function() {
     "use strict";
 
@@ -49,6 +58,7 @@ function applyTheme(ref) {
         return ['xcode', 'twilight', 'merbivore', 'dawn', 'kuroir']
     }();
 
+    /*
     let fontSize = function() {
         let customFontSize = tinymce.activeEditor.getParam('codeeditor_font_size');
         if(typeof customFontSize === "number") {
@@ -56,6 +66,13 @@ function applyTheme(ref) {
         }
         return 16
     }();
+    */
+    let customFontSize = tinymce.activeEditor.getParam('codeeditor_font_size');
+    if(typeof customFontSize === "number") {
+        //return parseInt(customFontSize);
+        fontSize = parseInt(customFontSize);
+        aceEditor.setFontSize(fontSize);
+    }
 
     let wrapMode = function() {
         let wrapContent = tinymce.activeEditor.getParam('codeeditor_wrap_mode');
@@ -69,6 +86,14 @@ function applyTheme(ref) {
         let options = '';
         for(let theme of themesPack) {
             options = options + `<option value="ace/theme/${theme}">${theme[0].toUpperCase() + theme.slice(1)}</option>`
+        }
+        return options
+    }
+
+    const getOptions2 = function() {
+        let options = '';
+        for(let sz of [16,18,20,22,24]) {
+            options = options + `<option value="${sz}">${sz}</option>`
         }
         return options
     }
@@ -281,6 +306,10 @@ function applyTheme(ref) {
         <select id="tox-codeeditor-theme-picker" onchange="applyTheme(this)">
             ${getOptions()}
         </select>
+
+        <select  onchange="applyFontSize(this)">
+            ${getOptions2()}
+        </select>
         <div role="presentation" id="tox-codeeditor-footer-buttons">
             
             <button title="Cancel" type="button" tabindex="-1" onclick="displayToxEditorModal(false)" class="tox-codeeditor-secondary-button">Cancel</button>
@@ -316,7 +345,7 @@ function applyTheme(ref) {
         try {
             aceEditor = ace.edit("tox-codeeditor-editor");
             aceEditor.setTheme("ace/theme/xcode");
-            aceEditor.setFontSize(fontSize);
+            //aceEditor.setFontSize(fontSize);
             clearInterval(tryToBuildAceTimer);
         } catch (e) {}
     }, 500);
